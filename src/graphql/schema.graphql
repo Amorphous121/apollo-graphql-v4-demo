@@ -1,0 +1,27 @@
+type Query {
+  getBooks: [Book!]
+  getAuthors: [Author!]
+}
+
+type Mutation {
+  createBook: Book
+  createAuthor: Author
+}
+
+type Book {
+  id: ID
+  name: String
+  price: Int
+
+  """ The Author of book """
+  author: Author
+}
+
+type Author {
+  id: ID 
+  name: String!
+  address: String!
+
+  """ The list of books Author have created """
+  books: [Book!]
+}
